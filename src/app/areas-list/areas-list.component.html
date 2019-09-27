@@ -1,0 +1,10 @@
+<p>Areas List </p>
+
+<mat-nav-list>
+    <mat-list-item *ngFor="let area of areas">
+        <span>{{ area.id }}</span>
+        <span>{{ area.name }}</span>
+        <span>{{ area.width }}</span>
+        <span>{{ area.length }}</span>
+    </mat-list-item>
+</mat-nav-list>
