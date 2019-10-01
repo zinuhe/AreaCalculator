@@ -10,7 +10,8 @@ import { Area } from './area';
 export class AreaService {
 
   // URL to Web API
-  private areasUrl = 'https://localhost:44371/Area';
+  // private areasUrl = 'https://localhost:44371/Area';
+  private areasUrl = '/api/Area';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -19,8 +20,18 @@ export class AreaService {
   constructor(
     private http: HttpClient) { }
 
-  // GET areas from the Web API (.Net Core server)
+  // GET areas from the Web API (.Net Core server) ****
   getAreas(): Observable<Area[]> {
+
+    console.log('area.service.ts : 25');
+
+    return this.http.get<Area[]>(this.areasUrl);
+  }
+  // , error => console.error(error));
+
+
+  public getAreas_() {
+    // return this.http.get(this.areasUrl);
     return this.http.get<Area[]>(this.areasUrl);
   }
 

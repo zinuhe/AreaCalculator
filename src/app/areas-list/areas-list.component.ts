@@ -19,8 +19,19 @@ export class AreasListComponent implements OnInit {
   }
 
   getAreas(): void {
+
+    console.log('areas-list.components.ts : 24');
+
     this.areaService.getAreas()
-      .subscribe(areas => this.areas = areas);
+      .subscribe(data => this.areas = data);
+      // .subscribe((data) => {
+      //   console.log('areas-list.components.ts : 29');
+      //   console.log('data: ' + data);
+      //   this.areas = data;
+      // });
+
+    console.log('areas-list.components.ts : 33');
+    console.log('this.areas: ' + this.areas);
   }
 
 }
