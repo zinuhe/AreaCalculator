@@ -7,6 +7,7 @@ import { NgModule } from '@angular/core';
 
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -17,6 +18,7 @@ import { AreasComponent } from './areas/areas.component';
 import { AreasListComponent } from './areas-list/areas-list.component';
 import { AreasSearchComponent } from './areas-search/areas-search.component';
 import { AreasListObservableComponent } from './areas-list-observable/areas-list-observable.component';
+import { AreasDetailComponent } from './areas-detail/areas-detail.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { AreasListObservableComponent } from './areas-list-observable/areas-list
     AreasComponent,
     AreasListComponent,
     AreasSearchComponent,
-    AreasListObservableComponent
+    AreasListObservableComponent,
+    AreasDetailComponent
   ],
   imports: [
     AppRoutingModule,
@@ -33,6 +36,7 @@ import { AreasListObservableComponent } from './areas-list-observable/areas-list
     HttpClientModule,
     MatCheckboxModule,
     MatIconModule,
+    MatFormFieldModule,
     MatListModule,
     MatMenuModule,
     MatSidenavModule,

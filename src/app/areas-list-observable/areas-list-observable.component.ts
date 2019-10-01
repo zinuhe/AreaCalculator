@@ -12,7 +12,7 @@ import { AreaService } from '../area.service';
 export class AreasListObservableComponent implements OnInit {
 
   areas$: Observable<Area[]>;
-  columnsOrder: string[] = ['id', 'name', 'width', 'length'];
+  columnsOrder: string[] = ['id', 'name', 'width', 'length', 'options'];
 
   constructor(private areaService: AreaService) { }
 
