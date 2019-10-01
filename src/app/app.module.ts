@@ -10,17 +10,21 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSortModule} from '@angular/material/sort'; // Table sorting
+import { MatTableModule} from '@angular/material/table';
 
 import { AreasComponent } from './areas/areas.component';
 import { AreasListComponent } from './areas-list/areas-list.component';
 import { AreasSearchComponent } from './areas-search/areas-search.component';
+import { AreasListObservableComponent } from './areas-list-observable/areas-list-observable.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AreasComponent,
     AreasListComponent,
-    AreasSearchComponent
+    AreasSearchComponent,
+    AreasListObservableComponent
   ],
   imports: [
     AppRoutingModule,
@@ -31,7 +35,9 @@ import { AreasSearchComponent } from './areas-search/areas-search.component';
     MatIconModule,
     MatListModule,
     MatMenuModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatSortModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

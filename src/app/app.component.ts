@@ -10,9 +10,9 @@ export class AppComponent {
 
   // shouldRun = [/(^|\.)plnkr\.co$/, /(^|\.)stackblitz\.io$/].some(h => h.test(window.location.host));
 
-  // Links array
+  // Links menu array
   links = [
-    { name: 'Areas', url: 'areas', icon: 'home' },
+    { name: 'Areas',  url: 'areas',       icon: 'home' },
     { name: 'Search', url: 'areasSearch', icon: 'search' }
   ];
 }

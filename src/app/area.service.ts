@@ -9,10 +9,11 @@ import { Area } from './area';
 })
 export class AreaService {
 
-  // URL to Web API
+  // URL to Web API path
   // private areasUrl = 'https://localhost:44371/Area';
-  private areasUrl = '/api/Area';
+  private areasUrl = '/api/Area'; // setted with a proxy file
 
+  // Http Options
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -22,18 +23,9 @@ export class AreaService {
 
   // GET areas from the Web API (.Net Core server) ****
   getAreas(): Observable<Area[]> {
-
-    console.log('area.service.ts : 25');
-
     return this.http.get<Area[]>(this.areasUrl);
   }
   // , error => console.error(error));
-
-
-  public getAreas_() {
-    // return this.http.get(this.areasUrl);
-    return this.http.get<Area[]>(this.areasUrl);
-  }
 
   // GET area by Id. Will 404 if id not found */
   getArea(id: number): Observable<Area> {

@@ -1,19 +1,29 @@
-<p>Areas List </p>
+<p>Areas List Observable</p>
+
+<!--
+<ul>
+  <li *ngFor="let area of areas$ | async">
+      <span>{{ area.id }}</span>
+      <span>{{ area.name }}</span>
+      <span>{{ area.width }}</span>
+      <span>{{ area.length }}</span>
+  </li>
+</ul>
+-->
 
 <!--
 <mat-nav-list>
-    <mat-list-item *ngFor="let area of areas">
-        <span>{{ area.id }}</span>
-        <span>{{ area.name }}</span>
-        <span>{{ area.width }}</span>
-        <span>{{ area.length }}</span>
-    </mat-list-item>
+  <mat-list-item *ngFor="let area of areas$ | async">
+      <span>{{ area.id }}</span>
+      <span>{{ area.name }}</span>
+      <span>{{ area.width }}</span>
+      <span>{{ area.length }}</span>
+  </mat-list-item>
 </mat-nav-list>
--->
+ -->
 
-<table mat-table matSort [dataSource]="areas" class="mat-elevation-z8">
+<table mat-table matSort [dataSource]="areas$" class="mat-elevation-z8">
   <!--- Note that these columns can be defined in any order. The actual rendered columns are set as a property on the row definition" -->
-
   <!-- ID Column -->
   <ng-container matColumnDef="id">
     <th mat-header-cell mat-sort-header *matHeaderCellDef> ID </th>

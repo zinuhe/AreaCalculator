@@ -11,6 +11,7 @@ import { AreaService } from '../area.service';
 export class AreasListComponent implements OnInit {
 
   areas: Area[];
+  columnsOrder: string[] = ['id', 'name', 'width', 'length'];
 
   constructor(private areaService: AreaService) { }
 
@@ -19,19 +20,11 @@ export class AreasListComponent implements OnInit {
   }
 
   getAreas(): void {
-
-    console.log('areas-list.components.ts : 24');
-
     this.areaService.getAreas()
       .subscribe(data => this.areas = data);
       // .subscribe((data) => {
-      //   console.log('areas-list.components.ts : 29');
-      //   console.log('data: ' + data);
-      //   this.areas = data;
+        // console.table(data);
+        // this.areas = data;
       // });
-
-    console.log('areas-list.components.ts : 33');
-    console.log('this.areas: ' + this.areas);
   }
-
 }
