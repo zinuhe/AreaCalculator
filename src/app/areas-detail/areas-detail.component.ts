@@ -20,7 +20,7 @@ export class AreasDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location
   ) {
-    this.detailArea = new Area();
+    // this.detailArea = new Area();
   }
 
   ngOnInit() {
@@ -46,15 +46,18 @@ export class AreasDetailComponent implements OnInit {
   // }
 
   updateArea(): void {
-    this.areaService.updateArea(this.detailArea).subscribe(response => {
-      this.location.back();
-    });
+    this.areaService.updateArea(this.detailArea)
+      .subscribe(response => {
+        this.location.back();
+        // this.router.navigate(['areas']);
+      });
   }
 
   deleteArea(): void {
-    this.areaService.deleteArea(this.id).subscribe(response => {
-      this.location.back();
-    });
+    this.areaService.deleteArea(this.id)
+      .subscribe(response => {
+        this.location.back();
+      });
   }
 
   goBack(): void {

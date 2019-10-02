@@ -10,4 +10,20 @@
 .form-button-row button,
 .form-button-row a {
   margin-right: 8px;
+  margin-top: 15px;
+}
+
+.form-button-alone button {
+  margin-right: 8px;
+  margin-top: 15px;
+}
+
+.mat-card {
+  border: solid 0px blue;
+  width: 80%;
+}
+
+.mat-card-content {
+  border: solid 0px red;
+  width: 80%;
 }

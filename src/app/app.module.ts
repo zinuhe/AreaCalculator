@@ -21,6 +21,7 @@ import { AreasListComponent } from './areas-list/areas-list.component';
 import { AreasSearchComponent } from './areas-search/areas-search.component';
 import { AreasListObservableComponent } from './areas-list-observable/areas-list-observable.component';
 import { AreasDetailComponent } from './areas-detail/areas-detail.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { AreasDetailComponent } from './areas-detail/areas-detail.component';
     BrowserAnimationsModule,
     BrowserModule,
     HttpClientModule,
+    FormsModule,  // <input [(ngModel)]="object.property">
     MatCardModule,
     MatCheckboxModule,
     MatFormFieldModule,

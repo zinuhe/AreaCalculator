@@ -2,40 +2,43 @@
 
 <mat-card>
   <mat-card-content>
-    <div *ngIf="detailArea">
-      <form class="form-container">
+    <div *ngIf="detailArea" class="form-container">
+      <!-- <form class="form-container"> -->
         <mat-form-field>
-            <input matInput placeholder="Id">
-            {{detailArea.id}}
+            <input matInput placeholder="Id" readonly="true" [(ngModel)]="detailArea.id">
         </mat-form-field>
 
         <mat-form-field>
-            <!-- <input id="xXx" type="text" [(ngModel)]="detailArea.name" placeholder="Name" /> -->
-            <input matInput placeholder="Name" />
-            <!-- {{detailArea.name}} -->
+            <input matInput type="text" placeholder="Name" [(ngModel)]="detailArea.name">
+            <button mat-button *ngIf="detailArea.name" matSuffix mat-icon-button aria-label="Clear" (click)="detailArea.name=''">
+              <mat-icon>close</mat-icon>
+            </button>
         </mat-form-field>
 
         <mat-form-field>
-            <input matInput placeholder="Width">
-            {{detailArea.width}}
+            <input matInput type="number" placeholder="Width" [(ngModel)]="detailArea.width">
+            <button mat-button *ngIf="detailArea.width" matSuffix mat-icon-button aria-label="Clear" (click)="detailArea.width=''">
+              <mat-icon>close</mat-icon>
+            </button>
         </mat-form-field>
 
         <mat-form-field>
-            <input matInput placeholder="Length">
-            {{detailArea.length}}
+            <input matInput type="number" placeholder="Length" [(ngModel)]="detailArea.length">
+            <button mat-button *ngIf="detailArea.length" matSuffix mat-icon-button aria-label="Clear" (click)="detailArea.length=''">
+              <mat-icon>close</mat-icon>
+            </button>
         </mat-form-field>
-      </form>
+      <!-- </form> -->
     </div>
   </mat-card-content>
+  <mat-divider></mat-divider>
 
   <div class="form-button-row">
     <button mat-raised-button (click)="updateArea()">Update</button>
     <button mat-raised-button (click)="deleteArea()">Delete</button>
   </div>
-
 </mat-card>
 
-<!-- <mat-divider></mat-divider> -->
-
-<button mat-raised-button (click)="goBack()">Return to the list</button>
-
+<div class="form-button-alone">
+  <button mat-raised-button (click)="goBack()">Return to the list</button>
+</div>
