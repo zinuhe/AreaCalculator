@@ -48,7 +48,7 @@ export class AreasDetailComponent implements OnInit {
   updateArea(): void {
     this.areaService.updateArea(this.detailArea)
       .subscribe(response => {
-        this.location.back();
+        this.goBack();
         // this.router.navigate(['areas']);
       });
   }
@@ -56,7 +56,7 @@ export class AreasDetailComponent implements OnInit {
   deleteArea(): void {
     this.areaService.deleteArea(this.id)
       .subscribe(response => {
-        this.location.back();
+        this.goBack();
       });
   }
 

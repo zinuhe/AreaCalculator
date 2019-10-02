@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
@@ -14,10 +15,21 @@ export class AreasListObservableComponent implements OnInit {
   areas$: Observable<Area[]>;
   columnsOrder: string[] = ['id', 'name', 'width', 'length', 'options'];
 
-  constructor(private areaService: AreaService) { }
+  constructor(
+    private areaService: AreaService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.areas$ = this.areaService.getAreas();
+  }
+
+  deleteArea(areaId: number): void {
+    this.areaService.deleteArea(areaId)
+    .subscribe(response => {
+      this.router.navigate(['areasSearch']);
+      // this.router.navigate(['areas']);
+    });
   }
 
 }
