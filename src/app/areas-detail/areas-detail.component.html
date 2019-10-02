@@ -4,7 +4,7 @@
   <mat-card-content>
     <div *ngIf="detailArea" class="form-container">
       <!-- <form class="form-container"> -->
-        <mat-form-field>
+        <mat-form-field *ngIf="detailArea.id">
             <input matInput placeholder="Id" readonly="true" [(ngModel)]="detailArea.id">
         </mat-form-field>
 
@@ -34,8 +34,8 @@
   <mat-divider></mat-divider>
 
   <div class="form-button-row">
-    <button mat-raised-button (click)="updateArea()">Update</button>
-    <button mat-raised-button (click)="deleteArea()">Delete</button>
+    <button mat-raised-button (click)="addUpdateArea()">{{addUpdateButton}}</button>
+    <button mat-raised-button (click)="deleteArea()" *ngIf="detailArea.id">Delete</button>
   </div>
 </mat-card>
 

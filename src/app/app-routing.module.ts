@@ -8,9 +8,10 @@ import { AreasSearchComponent } from './areas-search/areas-search.component';
 // const routes: Routes = [];
 const routes: Routes = [
   { path: '', redirectTo: '/areas', pathMatch: 'full' },
-  { path: 'areas', component: AreasComponent },             // Main page
-  { path: 'areasDetail/:id', component: AreasDetailComponent }, // Detail Area page
-  { path: 'areasSearch', component: AreasSearchComponent }  // Search Area page
+  { path: 'areas', component: AreasComponent },                 // Main page
+  { path: 'areasDetail', component: AreasDetailComponent },     // Detail Area page
+  { path: 'areasDetail/:id', component: AreasDetailComponent }, // Detail Area page with id
+  { path: 'areasSearch', component: AreasSearchComponent }      // Search Area page
 ];
 
 @NgModule({

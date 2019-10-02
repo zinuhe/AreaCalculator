@@ -1,6 +1,6 @@
-import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 import { Area } from '../area';
 import { AreaService } from '../area.service';
@@ -22,6 +22,12 @@ export class AreasListObservableComponent implements OnInit {
 
   ngOnInit() {
     this.areas$ = this.areaService.getAreas();
+  }
+
+  newArea() {
+    // this.areaService.addArea(this.detailArea).subscribe((response) => {
+    //   this.router.navigate(['areas']);
+    // });
   }
 
   deleteArea(areaId: number): void {

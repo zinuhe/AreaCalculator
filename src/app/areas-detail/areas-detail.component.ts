@@ -14,23 +14,30 @@ export class AreasDetailComponent implements OnInit {
 
   id: number;
   detailArea: Area;
+  addUpdateButton: string;
 
   constructor(
     private areaService: AreaService,
     private route: ActivatedRoute,
     private location: Location
   ) {
-    // this.detailArea = new Area();
+     this.detailArea = new Area(); // Avoid error on *ngIf
   }
 
   ngOnInit() {
     this.id = +this.route.snapshot.paramMap.get('id');
-    this.getAreaDetail();
+
+
+    if (this.id && this.id > 0) {
+      this.getAreaDetail();
+      this.addUpdateButton = 'Updated';
+    } else {
+      this.detailArea = new Area();
+      this.addUpdateButton = 'Add';
+    }
   }
 
   getAreaDetail(): void {
-    // const id = +this.route.snapshot.paramMap.get('id');
-
     this.areaService.getArea(this.id)
       .subscribe(data => this.detailArea = data);
       // .subscribe((data) => {
@@ -39,18 +46,20 @@ export class AreasDetailComponent implements OnInit {
       // });
   }
 
-  // addArea() {
-  //   this.areaService.addArea(this.detailArea).subscribe((response) => {
-  //     this.router.navigate(['areas']);
-  //   });
-  // }
-
-  updateArea(): void {
-    this.areaService.updateArea(this.detailArea)
+  addUpdateArea(): void {
+    if (this.detailArea.id) { // Updated Area
+      this.areaService.updateArea(this.detailArea)
       .subscribe(response => {
         this.goBack();
         // this.router.navigate(['areas']);
       });
+    } else {  // New Area
+      this.areaService.addArea(this.detailArea)
+      .subscribe(response => {
+        this.goBack();
+        // this.router.navigate(['areas']);
+      });
+    }
   }
 
   deleteArea(): void {
