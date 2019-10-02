@@ -5,9 +5,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
+import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule} from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input'
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -24,19 +26,21 @@ import { AreasDetailComponent } from './areas-detail/areas-detail.component';
   declarations: [
     AppComponent,
     AreasComponent,
+    AreasDetailComponent,
     AreasListComponent,
-    AreasSearchComponent,
     AreasListObservableComponent,
-    AreasDetailComponent
+    AreasSearchComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
     HttpClientModule,
+    MatCardModule,
     MatCheckboxModule,
-    MatIconModule,
     MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
     MatListModule,
     MatMenuModule,
     MatSidenavModule,

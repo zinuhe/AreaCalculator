@@ -1,19 +1,41 @@
 <p>Areas Detail</p>
 
-<div class="example-container">
-    <mat-form-field>
-      <input matInput placeholder="Id">
-    </mat-form-field>
+<mat-card>
+  <mat-card-content>
+    <div *ngIf="detailArea">
+      <form class="form-container">
+        <mat-form-field>
+            <input matInput placeholder="Id">
+            {{detailArea.id}}
+        </mat-form-field>
 
-    <mat-form-field>
-        <input matInput placeholder="Name">
-    </mat-form-field>
+        <mat-form-field>
+            <!-- <input id="xXx" type="text" [(ngModel)]="detailArea.name" placeholder="Name" /> -->
+            <input matInput placeholder="Name" />
+            <!-- {{detailArea.name}} -->
+        </mat-form-field>
 
-    <mat-form-field>
-        <input matInput placeholder="Width">
-    </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Width">
+            {{detailArea.width}}
+        </mat-form-field>
 
-    <mat-form-field>
-        <input matInput placeholder="Length">
-    </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Length">
+            {{detailArea.length}}
+        </mat-form-field>
+      </form>
+    </div>
+  </mat-card-content>
+
+  <div class="form-button-row">
+    <button mat-raised-button (click)="updateArea()">Update</button>
+    <button mat-raised-button (click)="deleteArea()">Delete</button>
   </div>
+
+</mat-card>
+
+<!-- <mat-divider></mat-divider> -->
+
+<button mat-raised-button (click)="goBack()">Return to the list</button>
+

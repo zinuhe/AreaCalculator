@@ -1,8 +1,13 @@
-.example-container {
+.form-container {
   display: flex;
   flex-direction: column;
 }
 
-.example-container > * {
-  width: 100%;
+.form-container > * {
+  width: 80%;
+}
+
+.form-button-row button,
+.form-button-row a {
+  margin-right: 8px;
 }
