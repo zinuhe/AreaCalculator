@@ -1,10 +1,17 @@
 table {
   width: 90%;
+  text-align: center !important;
 }
 
 th {
   font-size: 14px;
   font-weight: bold;
+}
+
+.mat-header-cell {
+  text-align: center;
+  // width: 100%;
+  // border: 1px solid red;
 }
 
 span {

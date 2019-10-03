@@ -12,7 +12,7 @@ export class AppComponent {
 
   // Links menu array
   links = [
-    { name: 'Areas',  url: 'areas',       icon: 'home' },
-    { name: 'Search', url: 'areasSearch', icon: 'search' }
+    { name: 'Areas',            url: 'areas',       icon: 'home' },
+    { name: 'Search my rooms',  url: 'areasSearch', icon: 'search' }
   ];
 }

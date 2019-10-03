@@ -1,2 +1,15 @@
-<h3>Search</h3>
+<h3>Search my Rooms</h3>
 
+<app-areas-list-observable></app-areas-list-observable>
+
+<form class="example-form">
+
+  <mat-form-field>
+    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+  </mat-form-field>
+
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let option of options" [value]="option">{{option}}</mat-option>
+  </mat-autocomplete>
+
+</form>
