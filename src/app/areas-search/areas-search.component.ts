@@ -51,13 +51,27 @@ export class AreasSearchComponent implements OnInit {
   isLoading = false;
   errorMsg: string;
 
-  areas$: Observable<Area[]>;
+  areas: Area[];
 
   constructor(private areaService: AreaService) { }
 
   ngOnInit() {
-    // this.areas$ = this.areaService.getAreas();
+    this.searchMoviesCtrl.valueChanges
+      .pipe(
+        debounceTime(500),
+        tap(() => {
+          this.filteredMovies = [];
+          this.isLoading = true;
+        }),
+        switchMap(value => this.areaService.searchAreas(value.toString()))
+      )
+      .subscribe(data => {
+          this.filteredMovies = data;
+          console.log(this.filteredMovies);
+      });
 
+
+    /*
     this.searchMoviesCtrl.valueChanges
       .pipe(
         debounceTime(500),
@@ -92,6 +106,7 @@ export class AreasSearchComponent implements OnInit {
 
         console.log(this.filteredMovies);
       });
+    */
   }
   // -------------------------------------------------------------------------
 }

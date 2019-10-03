@@ -36,6 +36,14 @@ export class AreaService {
     return this.http.get<Area>(url);
   }
 
+  // GET search Area by Name, Length and Width
+  searchAreas(query: string): Observable<Area> {
+    const url = `${this.areasUrl}/${query}/search`;
+
+    return this.http.get<Area>(url);
+  }
+
+
   // POST: add a new Area to the server */
   addArea(area: Area): Observable<Area> {
     return this.http.post<Area>(this.areasUrl, area, this.httpOptions);
