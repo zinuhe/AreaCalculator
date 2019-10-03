@@ -24,11 +24,11 @@ export class AreasListObservableComponent implements OnInit {
     this.areas$ = this.areaService.getAreas();
   }
 
-  newArea() {
-    // this.areaService.addArea(this.detailArea).subscribe((response) => {
-    //   this.router.navigate(['areas']);
-    // });
-  }
+  // newArea() {
+  //   this.areaService.addArea(this.detailArea).subscribe((response) => {
+  //     this.router.navigate(['areas']);
+  //   });
+  // }
 
   deleteArea(areaId: number): void {
     this.areaService.deleteArea(areaId)
