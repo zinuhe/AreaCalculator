@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -12,7 +12,7 @@ import { AreaService } from '../area.service';
   templateUrl: './areas-search.component.html',
   styleUrls: ['./areas-search.component.scss']
 })
-export class AreasSearchComponent implements OnInit {
+export class AreasSearchComponent implements OnInit, OnDestroy {
 
   // ---First approach (normal autocomplete)----------------------------------
   // myControl = new FormControl();
@@ -39,74 +39,53 @@ export class AreasSearchComponent implements OnInit {
 
   // private _filter(value: string): string[] {
   //   const filterValue = value.toLowerCase();
-
   //   return this.options.filter(option => option.toLowerCase().includes(filterValue));
   // }
   // -------------------------------------------------------------------------
 
 
   // ---Third approach (autocomplete with filter server side)-----------------
-  searchMoviesCtrl = new FormControl();
-  filteredMovies: any;
+  searchAreasCtrl = new FormControl();
+  filteredAreas: any;
   isLoading = false;
   errorMsg: string;
-
-  areas: Area[];
 
   constructor(private areaService: AreaService) { }
 
   ngOnInit() {
-    this.searchMoviesCtrl.valueChanges
+    this.searchAreasCtrl.valueChanges
       .pipe(
         debounceTime(500),
-        tap(() => {
-          this.filteredMovies = [];
-          this.isLoading = true;
-        }),
-        switchMap(value => this.areaService.searchAreas(value.toString()))
-      )
-      .subscribe(data => {
-          this.filteredMovies = data;
-          console.log(this.filteredMovies);
-      });
-
-
-    /*
-    this.searchMoviesCtrl.valueChanges
-      .pipe(
-        debounceTime(500),
-        tap(() => {
-          this.errorMsg = '';
-          this.filteredMovies = [];
-          this.isLoading = true;
-        }),
-        switchMap(value => this.http.get("http://www.omdbapi.com/?apikey=[YOUR_KEY_HERE]=" + value)
-          .pipe(
-            finalize(() => {
-              this.isLoading = false;
-            }),
-          )
+        tap( // implement side effects on the susbcribe
+          () => {
+            this.errorMsg = '';
+            this.filteredAreas = [];
+            // this.isLoading = true;
+          }
+        ),
+        // switchMap(value => this.areaService.searchAreas(value.toString()))
+        switchMap(
+          value => this.areaService.searchAreas(value.toString())
         )
       )
-      .subscribe(data => {
-        // if (data['Search'] === undefined) {
-        //   this.errorMsg = data['Error'];
-        //   this.filteredMovies = [];
-        // } else {
-        //   this.errorMsg = '';
-        //   this.filteredMovies = data['Search'];
-        // }
-        if (data === undefined) {
-          this.errorMsg = data;
-          this.filteredMovies = [];
-        } else {
-          this.errorMsg = '';
-          this.filteredMovies = data;
+      .subscribe(
+        result => {
+          if (result) {
+            this.filteredAreas = result;
+            console.table(this.filteredAreas);
+          } else {
+              // No data found message
+          }
+        },
+        error => {
+          console.log('EE:', error);
         }
-
-        console.log(this.filteredMovies);
-      });
-    */
+      );
   }
+
+  ngOnDestroy() {
+    // un-suscribe from observable
+  }
+
   // -------------------------------------------------------------------------
 }

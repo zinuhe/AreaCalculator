@@ -2,18 +2,6 @@
 
 <app-areas-list-observable></app-areas-list-observable>
 
-<!-- OLD --
-<form class="example-form">
-  <mat-form-field>
-    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
-  </mat-form-field>
-
-  <mat-autocomplete #auto="matAutocomplete">
-    <mat-option *ngFor="let option of options" [value]="option">{{option}}</mat-option>
-  </mat-autocomplete>
-</form>
--->
-
 <!-- First approach -->
 <!--
 <mat-form-field>
@@ -24,7 +12,6 @@
 <mat-autocomplete #auto="matAutocomplete">
   <mat-option *ngFor="let option of options" [value]="option">{{option}}</mat-option>
 </mat-autocomplete>
-!-- -------------- --
 -->
 
 <!-- Second approach -->
@@ -38,19 +25,19 @@
       </mat-option>
     </mat-autocomplete>
   </mat-form-field>
-!-- -------------- --
 -->
 
 
 <!-- Third  approach -->
 <div>
   <mat-form-field>
-    <input matInput placeholder="Search" aria-label="State" [matAutocomplete]="auto" [formControl]="searchMoviesCtrl">
-    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+    <input matInput placeholder="Search" aria-label="State" [matAutocomplete]="auto" [formControl]="searchAreasCtrl">
+    <!-- <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn"> -->
+    <mat-autocomplete #auto="matAutocomplete">
       <mat-option *ngIf="isLoading" class="is-loading">Loading...</mat-option>
       <ng-container *ngIf="!isLoading">
-        <mat-option *ngFor="let movie of filteredMovies" [value]="movie.Title">
-          <span><b>{{movie.Title}}</b> ({{movie.Year}})</span>
+        <mat-option *ngFor="let area of filteredAreas" [value]="area.name">
+          <span><b>N:{{area.name}}</b> W:{{area.width}}  L:{{area.length}}</span>
         </mat-option>
       </ng-container>
     </mat-autocomplete>
@@ -62,7 +49,7 @@
     {{errorMsg}}
   </ng-container>
   <ng-template #elseTemplate>
-    <h5>Selected Value: {{searchMoviesCtrl.value}}</h5>
+    <h5>Selected Value: {{searchAreasCtrl.value}}</h5>
   </ng-template>
 
 </div>
