@@ -44,7 +44,7 @@ export class AreasSearchComponent implements OnInit, OnDestroy {
   // -------------------------------------------------------------------------
 
 
-  // ---Third approach (autocomplete with filter server side)-----------------
+  // ---Third approach (autocomplete with filter server side and debouncing)-----------------
   searchAreasCtrl = new FormControl();
   filteredAreas: any;
   isLoading = false;
